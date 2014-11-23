@@ -1,4 +1,10 @@
 collections:
-  - computers
+  - business
+  - cstheory
+  - government
   - linguistics
+  - literature
+  - maths
   - music
+  - society
+exclude: [script]
