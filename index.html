@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+{% for c in site.collections %}
+
+<h2>{{ c[0] }}</h2>
+
+<ul>
+{% for doc in c[1].docs %}
+  <li>
+    <a href="{{ doc.there }}">
+      {{ doc.title }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
+{% endfor %}

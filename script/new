@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'jekyll/utils'
+
+def read(prompt)
+  print "#{prompt} >> "
+  STDIN.gets.strip
+end
+
+collection = (ARGV[0] || read("To which collection, dearie?"))
+title = read("Title?")
+url   = read("URL?  ")
+
+slug     = Jekyll::Utils.slugify(title)
+filename = "_#{collection}/#{slug}.md"
+
+File.open(filename, "w") do |f|
+  f.puts(YAML.dump({
+    "title" => title,
+    "there" => url
+  }))
+  f.puts "---"
+end
+
+puts "Written out to #{filename}."
