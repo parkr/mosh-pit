@@ -8,7 +8,7 @@ def read(prompt)
   STDIN.gets.strip
 end
 
-collection = (ARGV[0] || read("To which collection, dearie?"))
+collection = (ARGV[0] || read("To which collection, dearie?")).sub(/\A_/, '')
 title = read("Title?")
 url   = read("URL?  ")
 
@@ -23,4 +23,4 @@ File.open(filename, "w") do |f|
   f.puts "---"
 end
 
-puts "Written out to #{filename}."
+puts "Written out to '#{filename}'."
