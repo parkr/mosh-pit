@@ -13,7 +13,7 @@ title = read("Title?")
 url   = read("URL?  ")
 
 slug     = Jekyll::Utils.slugify(title)
-filename = "_#{collection}/#{slug}.md"
+filename = File.join("_#{collection}", "#{slug}.md")
 
 File.open(filename, "w") do |f|
   f.puts(YAML.dump({
