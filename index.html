@@ -4,6 +4,22 @@ layout: default
 
 {% for c in site.collections %}
 
+{% if jekyll.version > "3" %}
+
+<h2>{{ c.label }}</h2>
+
+<ul>
+{% for doc in c.docs %}
+  <li>
+    <a href="{{ doc.there }}">
+      {{ doc.title }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
+{% else %}
+
 <h2>{{ c[0] }}</h2>
 
 <ul>
@@ -15,5 +31,7 @@ layout: default
   </li>
 {% endfor %}
 </ul>
+
+{% endif %}
 
 {% endfor %}
