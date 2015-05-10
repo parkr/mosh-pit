@@ -1,2 +1,2 @@
 #!/bin/bash
-command -v jekyll > /dev/null || gem install jekyll
+bundle install -j8 $@
